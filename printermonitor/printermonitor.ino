@@ -27,7 +27,7 @@ SOFTWARE.
 
 #include "Settings.h"
 
-#define VERSION "1.7"
+#define VERSION "1.8"
 
 #define HOSTNAME "OctMon-" 
 #define CONFIG "/conf.txt"
@@ -630,7 +630,7 @@ void flashLED(int number, int delayTime) {
 void drawScreen1(OLEDDisplay *display, OLEDDisplayUiState* state, int16_t x, int16_t y) {
   display->setTextAlignment(TEXT_ALIGN_CENTER);
   display->setFont(ArialMT_Plain_16);
-  display->drawString(64 + x, 0 + y, "Bed / Tool Temp");
+  display->drawString(64 + x, 0 + y, "Bed / Dyse Temp");
   display->setTextAlignment(TEXT_ALIGN_LEFT);
   display->setFont(ArialMT_Plain_24);
   String bed = printerClient.getValueRounded(printerClient.getTempBedActual());
@@ -643,7 +643,7 @@ void drawScreen2(OLEDDisplay *display, OLEDDisplayUiState* state, int16_t x, int
   display->setTextAlignment(TEXT_ALIGN_CENTER);
   display->setFont(ArialMT_Plain_16);
 
-  display->drawString(64 + x, 0 + y, "Time Remaining");
+  display->drawString(64 + x, 0 + y, "Gjenstående tid");
   //display->setTextAlignment(TEXT_ALIGN_LEFT);
   display->setFont(ArialMT_Plain_24);
   int val = printerClient.getProgressPrintTimeLeft().toInt();
@@ -660,7 +660,7 @@ void drawScreen3(OLEDDisplay *display, OLEDDisplayUiState* state, int16_t x, int
   display->setTextAlignment(TEXT_ALIGN_CENTER);
   display->setFont(ArialMT_Plain_16);
 
-  display->drawString(64 + x, 0 + y, "Printing Time");
+  display->drawString(64 + x, 0 + y, "Printtid");
   //display->setTextAlignment(TEXT_ALIGN_LEFT);
   display->setFont(ArialMT_Plain_24);
   int val = printerClient.getProgressPrintTime().toInt();
